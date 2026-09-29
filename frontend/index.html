@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Predictive Preload Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel hero">
+        <div>
+          <p class="eyebrow">AI Navigation Intelligence</p>
+          <h1>Predictive Page Dashboard</h1>
+          <p>
+            See your next likely pages in real time. The model learns from every click,
+            then preloads what you are likely to open next.
+          </p>
+        </div>
+      </section>
+
+      <section class="panel controls">
+        <div class="row">
+          <label for="username">User</label>
+          <input id="username" placeholder="e.g. junhui" />
+          <button id="create-user">Create New User</button>
+          <select id="existing-users">
+            <option value="">Select existing user</option>
+          </select>
+          <button id="load-selected-user">Load Selected User</button>
+          <span id="user-state">No user selected</span>
+        </div>
+        <div class="row">
+          <label>Navigate To</label>
+          <div id="page-buttons" class="page-buttons"></div>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="panel stat-card">
+          <p>Active User</p>
+          <h3 id="metric-user">-</h3>
+        </article>
+        <article class="panel stat-card">
+          <p>Total Visits</p>
+          <h3 id="metric-visits">0</h3>
+        </article>
+        <article class="panel stat-card">
+          <p>Preloaded Pages</p>
+          <h3 id="metric-cache">0</h3>
+        </article>
+        <article class="panel stat-card">
+          <p>Top Prediction Confidence</p>
+          <h3 id="metric-confidence">0%</h3>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel full-span">
+          <h2>Predicted Next Pages</h2>
+          <div id="predictions" class="prediction-table"></div>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel">
+          <h2>Recent Journey</h2>
+          <ul id="history" class="list"></ul>
+        </article>
+        <article class="panel">
+          <h2>Preload Cache</h2>
+          <ul id="cache-list" class="list"></ul>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

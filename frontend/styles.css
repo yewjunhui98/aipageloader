@@ -1,0 +1,242 @@
+:root {
+  --bg-0: #07131c;
+  --bg-1: #0f2331;
+  --bg-2: #1f3f57;
+  --panel: rgba(255, 255, 255, 0.08);
+  --panel-strong: rgba(255, 255, 255, 0.13);
+  --border: rgba(173, 219, 255, 0.25);
+  --text-main: #eef7ff;
+  --text-soft: #b9d2e8;
+  --accent: #f8bb38;
+  --accent-2: #32d3b8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: var(--text-main);
+  min-height: 100vh;
+  background: radial-gradient(circle at 8% 12%, #2f5775 0%, transparent 35%),
+    radial-gradient(circle at 92% 4%, #694925 0%, transparent 25%),
+    linear-gradient(145deg, var(--bg-0), var(--bg-1) 55%, var(--bg-2));
+}
+
+.layout {
+  width: min(1180px, 94vw);
+  margin: 1.4rem auto 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.panel {
+  backdrop-filter: blur(8px);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.eyebrow {
+  margin: 0 0 0.2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.hero p {
+  color: var(--text-soft);
+  margin: 0.6rem 0 0;
+  max-width: 760px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.6rem;
+}
+
+label {
+  font-weight: 700;
+  color: var(--text-soft);
+}
+
+input,
+select,
+button {
+  border-radius: 10px;
+  padding: 0.58rem 0.72rem;
+  font: inherit;
+  border: 1px solid transparent;
+}
+
+input,
+select {
+  min-width: 210px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #14212b;
+}
+
+.page-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.nav-page-btn {
+  background: rgba(50, 211, 184, 0.15);
+  color: var(--text-main);
+  border: 1px solid rgba(50, 211, 184, 0.45);
+}
+
+.nav-page-btn:hover {
+  background: rgba(50, 211, 184, 0.28);
+}
+
+.nav-page-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+button {
+  background: linear-gradient(120deg, var(--accent), #ffd76a);
+  color: #1a1a1a;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.stat-card {
+  background: var(--panel-strong);
+}
+
+.stat-card p {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--text-soft);
+}
+
+.stat-card h3 {
+  margin: 0.5rem 0 0;
+  font-size: 1.35rem;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.full-span {
+  grid-column: 1 / -1;
+}
+
+.page-card {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(5, 18, 28, 0.45);
+  padding: 0.9rem;
+  min-height: 110px;
+}
+
+.prediction-table {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.prediction-row {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.65rem;
+  background: rgba(5, 18, 28, 0.45);
+}
+
+.prediction-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+}
+
+.prediction-url {
+  color: var(--text-soft);
+  overflow-wrap: anywhere;
+}
+
+.prediction-redirect-btn {
+  margin-top: 0.55rem;
+  width: 100%;
+}
+
+.probability {
+  font-weight: 800;
+}
+
+.meter {
+  margin-top: 0.5rem;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.meter span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #3af0d0, #f8bb38);
+}
+
+.list {
+  margin: 0;
+  padding-left: 1rem;
+  line-height: 1.6;
+}
+
+.ok {
+  color: var(--accent-2);
+}
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  input,
+  select {
+    min-width: 100%;
+  }
+
+  .page-buttons {
+    width: 100%;
+  }
+}

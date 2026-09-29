@@ -1,0 +1,3 @@
+podman-data/mssql/
+__pycache__/
+*.pyc

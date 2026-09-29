@@ -1,0 +1,56 @@
+:root {
+  --card: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.3);
+  --text: #f7fbff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.wrapper {
+  width: min(980px, 92vw);
+  margin: 2rem auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.panel {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 18px;
+  padding: 1rem 1.2rem;
+  backdrop-filter: blur(6px);
+}
+
+h1 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.pill {
+  display: inline-block;
+  margin-top: 0.7rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 0.8rem;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}

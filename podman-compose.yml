@@ -1,0 +1,47 @@
+version: "3.9"
+
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: poc-mssql
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Your_strong_password123"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools18/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "Your_strong_password123", "-Q", "SELECT 1", "-No"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  backend:
+    build:
+      context: ./backend
+    container_name: poc-backend
+    environment:
+      DB_HOST: "mssql"
+      DB_PORT: "1433"
+      DB_NAME: "master"
+      DB_USER: "sa"
+      DB_PASSWORD: "Your_strong_password123"
+      DB_DRIVER: "ODBC Driver 18 for SQL Server"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mssql
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: poc-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+volumes:
+  mssql_data:
